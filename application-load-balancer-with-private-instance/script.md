@@ -8,14 +8,18 @@ In this instance I used S3 gateway endpoint.
 
 In two private instance we install apache server and started apache server.
 
+```
 sudo yum install httpd
 sudo systemctl start httpd
 sudo systemctl enable httpd
+```
 
 Created a index.html file in /var/www/html/ for web server.
+```
 sudo nano /var/www/html/index.heml
+```
 
-"Hello This is Private server1"
+``"Hello This is Private server1"``
 
 similarly we done this step on second private instance.
 
