@@ -4,7 +4,7 @@ Created a S3 bucket which is named same as my domain.
   Configurations on S3 bucket
   1. Disabled block public access
   2. Added bcukete policy
-      {
+```   {
     "Version": "2012-10-17",
     "Statement": [
         {
@@ -15,3 +15,4 @@ Created a S3 bucket which is named same as my domain.
         }
     ]
 }
+```
