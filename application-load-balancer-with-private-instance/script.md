@@ -4,7 +4,7 @@ We created three instaces in different AZ with 1 public and 2 private instances.
 Public instance is used to access private instace as bastion host.
 
 For installing apache server we can use NAT gateway or NAT instance.
-In this instance I used S3 gateway endpoint.
+In this instance I used S3 gateway endpoint for installing apache server.
 
 In two private instance we install apache server and started apache server.
 
