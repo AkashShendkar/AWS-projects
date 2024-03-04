@@ -39,11 +39,11 @@
     command: tar -xvf /home/ec2-user/wordpress-6.4.3.tar.gz
   
   - name: Move wordpress to apache  
-    command: mv wordpress/* /var/www/html/
+    command: mv /home/ec2-user/wordpress/* /var/www/html/
 
   - name: Copy file from local to remote
     copy:
-        src: /home/ec2-user/repo/webserver-using-terraform-ansible/wp-config.php
+        src: /home/ec2-user/wordpress-website-project-with-ansible/wp-config.php
         dest: /var/www/html/wp-config.php
         mode: 0644
 
