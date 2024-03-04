@@ -36,7 +36,7 @@
        dest: "/home/ec2-user/"
 
   - name: Extract tar archieve
-    command: tar -xvf /home/ec2-user/latest.tar.gz
+    command: tar -xvf /home/ec2-user/wordpress-6.4.3.tar.gz
   
   - name: Move wordpress to apache  
     command: mv wordpress/* /var/www/html/
