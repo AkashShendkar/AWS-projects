@@ -1,12 +1,31 @@
 #!/bin/bash
 
 yum update
-yum install httpd php mariadb105-server.x86_64 php-mysqlnd -y
+
+wget http://repo.mysql.com/mysql-community-release-el7-5.noarch.rpm
+
+rpm -ivh mysql-community-release-el7-5.noarch.rpm
+
+sudo yum install mysql-server httpd php php-mysqlnd -y
+
+
+
+cd /var/www/html/
+# Create html file
+echo "healthy" > healthy.html
 
 wget https://wordpress.org/latest.tar.gz
-tar -xvf latest.tar.gz
-sudo mv wordpress/* /var/www/html/
 
+tar -xzf latest.tar.gz
+
+mv -r wordpress/* /var/www/html/
+
+
+
+sudo chmod -R 755 wp-content
+sudo chown apache:apache /var/www/html
+sudo chkconfig httpd on  
+sudo service httpd start
 
 
 
