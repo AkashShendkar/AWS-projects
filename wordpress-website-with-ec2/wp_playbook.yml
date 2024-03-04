@@ -28,34 +28,33 @@
   - name: Download wordpress
     get_url:
        url: "https://wordpress.org/latest.tar.gz"
-       dest: "/var/www/html/"
+       dest: "/home/ec2-user/"
 
   - name: Extract tar archieve
-    command: tar -xvf /var/www/html/latest.tar.gz
+    command: tar -xvf /home/ec2-user/latest.tar.gz
+  
+  - name: Move wordpress to apache  
+    command: mv wordpress/* /var/www/html/
 
   - name: Copy file from local to remote
     copy:
         src: /home/ec2-user/repo/webserver-using-terraform-ansible/wp-config.php
-        dest: /var/www/html/wordpress/wp-config.php
+        dest: /var/www/html/wp-config.php
         mode: 0644
 
   - name: Set ownership for WordPress directory recursively
     file:
-        path: /var/www/html/wordpress
+        path: /var/www/html
         state: directory
         recurse: yes
         owner: apache
         group: apache
-
-  - name: Set ownership for WordPress files recursively
+ 
+  - name: Set permissions to wp-content
     file:
-        path: /var/www/html/wordpress
-        state: file
-        recurse: yes
-        owner: apache
-        group: apache
-
-
+        path: /var/www/html/wp-content
+        mode: "755"
+        
   - name: Start httpd
     service:
       name: httpd
